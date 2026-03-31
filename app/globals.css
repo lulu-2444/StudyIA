@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0b0b12;
+  --surface: #14141f;
+  --card: #1e1e2e;
+  --card2: #242436;
+  --border: rgba(255,255,255,0.06);
+  --border2: rgba(255,255,255,0.12);
+  --pink: #ff4fa3;
+  --cyan: #00d4ff;
+  --yellow: #ffd84d;
+  --purple: #9b59ff;
+  --green: #00e5a0;
+  --orange: #ff7a2f;
+  --text: #eeeeff;
+  --muted: #5a5a7a;
+  --muted2: #8888a8;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); }
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+.gradient-text { background: linear-gradient(135deg, var(--pink), var(--purple), var(--cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.spinner { width: 48px; height: 48px; border-radius: 50%; border: 3px solid var(--border2); border-top-color: var(--purple); animation: spin 0.9s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.card-flip { perspective: 1000px; }
+.card-flip-inner { transition: transform 0.5s; transform-style: preserve-3d; }
+.card-flip.flipped .card-flip-inner { transform: rotateY(180deg); }
+.card-face { backface-visibility: hidden; position: absolute; inset: 0; border-radius: 20px; display: flex; align-items: center; justify-content: center; padding: 28px; text-align: center; flex-direction: column; }
+.card-back-face { transform: rotateY(180deg); }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+.fade-up { animation: fadeUp 0.3s ease forwards; }
